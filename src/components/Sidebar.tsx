@@ -10,23 +10,28 @@ export function Sidebar() {
   return (
     <aside className="h-full border-r bg-gray-900 border-gray-100 dark:border-gray-800/50 flex flex-col items-center justify-between text-gray-700">
       <div className="flex flex-col items-center">
-        <div className="w-full h-full p-3 flex items-center justify-center bg-emerald-500 text-white">
+        <button
+          type="button"
+          className="w-full h-full p-3 flex items-center justify-center bg-emerald-500 text-white"
+          onClick={() => navigate('/')}
+        >
           <Fish size={24} />
-        </div>
+        </button>
+
+        <button
+          type="button"
+          className="p-4 items-start justify-center flex hover:bg-gray-800 hover:text-gray-200 transition-all"
+          onClick={() => navigate('/appeal')}
+        >
+          <CatalogPublish size={20} />
+        </button>
+
         <button
           type="button"
           className="p-4 items-start justify-center flex hover:bg-gray-800 hover:text-gray-200 transition-all"
           onClick={() => navigate('/changelog')}
         >
           <Bullhorn size={20} />
-        </button>
-
-        <button
-          type="button"
-          className="p-4 items-start justify-center flex hover:bg-gray-800 hover:text-gray-200 transition-all"
-          onClick={() => navigate('/')}
-        >
-          <CatalogPublish size={20} />
         </button>
 
         <button

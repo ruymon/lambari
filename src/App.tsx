@@ -14,7 +14,7 @@ function App({ children }: AppProps) {
           <AppTopBar />
         </div>
       )}
-      <div className="flex h-full w-full bg-white dark:bg-gray-900">
+      <div className="flex h-[calc(100%-1.54rem)] w-full bg-white dark:bg-gray-900">
         <Sidebar />
         {children}
       </div>

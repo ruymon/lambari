@@ -15,7 +15,7 @@ export function AppTopBar() {
 
   return (
     <div className="px-2 flex items-center justify-between draggable bg-gray-900 border-b border-gray-800/75">
-      <span className="text-xs font-semibold text-gray-500">Lambari - Top Fish</span>
+      <span className="text-xs font-semibold text-gray-500">Lambari</span>
 
       <div className="flex items-center gap-2 text-gray-400">
         <span className="text-xs text-white px-4 py-1 bg-amber-500 font-mono">ALPHA v0.2</span>

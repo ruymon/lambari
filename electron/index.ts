@@ -55,6 +55,8 @@ app.whenReady().then(() => {
     show: true,
     resizable: true,
     fullscreenable: true,
+    icon: 'src/assets/icons/icon.ico',
+    backgroundColor: '#111827',
     webPreferences: {
       preload: join(__dirname, 'preload.js')
     }
