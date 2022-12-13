@@ -1,12 +1,12 @@
 {
-  "name": "vite-reactts-electron-starter",
-  "version": "0.5.0",
+  "name": "lambari",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "main/index.js",
   "author": {
-    "name": "Maximilian Stümpfl"
+    "name": "Ruy Monteiro"
   },
-  "description": "Starter using Vite 2+ React +Typescript + Electron for fast prototyping.",
+  "description": "Registro de apelações",
   "keywords": [
     "vite",
     "react",
@@ -14,9 +14,9 @@
     "typescript"
   ],
   "repository": {
-    "url": "https://github.com/lTimeless/vite-reactts-electron-starter"
+    "url": "https://github.com/ruymon/lambari"
   },
-  "productName": "vite-reactts-electron-starter",
+  "productName": "Lambari",
   "scripts": {
     "dev": "concurrently \"yarn dev:vite\" \" yarn dev:electron\"",
     "dev:vite": "vite",
@@ -35,6 +35,7 @@
     "@carbon/icons-react": "^11.13.0",
     "@vitejs/plugin-react": "^1.2.0",
     "electron-is-dev": "^2.0.0",
+    "electron-router-dom": "^1.0.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "vite": "^2.8.6"
