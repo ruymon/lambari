@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { AppTopBar } from './components/AppTopBar';
 import { Sidebar } from './components/Sidebar';
-import { AppealPage } from './pages/Appeal';
 
-function App() {
+interface AppProps {
+  children: ReactNode;
+}
+
+function App({ children }: AppProps) {
   return (
     <div className="flex flex-col h-screen w-screen">
       {window.Main && (
@@ -13,7 +16,7 @@ function App() {
       )}
       <div className="flex h-full w-full bg-white dark:bg-gray-900">
         <Sidebar />
-        <AppealPage />
+        {children}
       </div>
     </div>
   );

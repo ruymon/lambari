@@ -18,7 +18,7 @@ export function AppTopBar() {
       <span className="text-xs font-semibold text-gray-500">Lambari - Top Fish</span>
 
       <div className="flex items-center gap-2 text-gray-400">
-        <span className="text-xs text-white px-4 py-1 bg-violet-500 font-mono">BETA v0.1</span>
+        <span className="text-xs text-white px-4 py-1 bg-amber-500 font-mono">ALPHA v0.2</span>
 
         <button onClick={window.Main.Minimize} className="undraggable p-1 px-2 hover:bg-gray-800 hover:text-white">
           <Subtract size={16} />

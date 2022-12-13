@@ -1,39 +1,29 @@
-// Native
 import { join } from 'path';
 
-// Packages
-import { app, BrowserWindow, ipcMain, IpcMainEvent } from 'electron';
+import { app, BrowserWindow, BrowserWindowConstructorOptions as WindowOptions, ipcMain, IpcMainEvent } from 'electron';
 import isDev from 'electron-is-dev';
+import { createFileRoute, createURLRoute } from 'electron-router-dom';
 
 const width = 480;
 const height = 600;
 
-function createWindow() {
+function createWindow(id: string, options: WindowOptions = {}) {
   // Create the browser window.
   const window = new BrowserWindow({
     width,
     height,
-    minWidth: 480,
-    minHeight: 600,
-    //  change to false to use AppBar
-    frame: false,
-    show: true,
-    resizable: true,
-    fullscreenable: true,
-    webPreferences: {
-      preload: join(__dirname, 'preload.js')
-    }
+    ...options
   });
 
-  const port = process.env.PORT || 3000;
-  const url = isDev ? `http://localhost:${port}` : join(__dirname, '../src/out/index.html');
+  const fileRoute = createFileRoute(join(__dirname, '../renderer/index.html'), id);
 
-  // and load the index.html of the app.
-  if (isDev) {
-    window?.loadURL(url);
-  } else {
-    window?.loadFile(url);
-  }
+  const port = process.env.PORT || 3000;
+  // const url = isDev ? `http://localhost:${port}` : join(__dirname, '../src/out/index.html');
+  const devServerURL = createURLRoute(`http://localhost:${port}`, id);
+
+  if (isDev) window.loadURL(devServerURL);
+  else window.loadFile(...fileRoute);
+
   // Open the DevTools.
   // window.webContents.openDevTools();
 
@@ -57,12 +47,25 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createWindow();
+  const options: WindowOptions = {
+    minWidth: 480,
+    minHeight: 600,
+    //  change to false to use AppBar
+    frame: false,
+    show: true,
+    resizable: true,
+    fullscreenable: true,
+    webPreferences: {
+      preload: join(__dirname, 'preload.js')
+    }
+  };
+
+  createWindow('main', options);
 
   app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    if (BrowserWindow.getAllWindows().length === 0) createWindow('main', options);
   });
 });
 

@@ -1,7 +1,8 @@
-import { Checkmark } from '@carbon/icons-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-export function AppealPage({}: AppealPageProps) {
+import { Checkmark } from '@carbon/icons-react';
+
+export function AppealPage() {
   const [isSent, setSent] = useState(false);
   const [appealer, setAppealer] = useState('');
   const [appealReason, setAppealReason] = useState('');
@@ -101,7 +102,6 @@ export function AppealPage({}: AppealPageProps) {
           <textarea
             className="py-2 px-4 dark:bg-gray-800/25 dark:border-gray-800 border dark:placeholder:text-gray-700 dark:text-gray-400 max-h-44"
             required
-            type="text"
             value={appealReason}
             onChange={(e) => setAppealReason(e.target.value)}
             placeholder="Descrição do ocorrido..."
